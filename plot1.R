@@ -6,9 +6,20 @@
 
 ##This plots a histogram showing the frequency of values for the Global Active Power measurements
 
-##Read the data, note sep = ";" and na.strings = "?" and stringsAsFactors set to FALSE
-data <- read.table("./exdata_data_household_power_consumption/household_power_consumption.txt", 
-                   header = TRUE, sep = ";", na.strings = "?", stringsAsFactors = FALSE)
+
+##Read the data, note sep = ";" and na.strings = "?" and stringsAsFactors set to FALSE. 
+##Note: please use this if you have already downloaded the data, manually unzipped, and 
+##placed in your working directory. 
+##data <- read.table("./exdata_data_household_power_consumption/household_power_consumption.txt", 
+# header = TRUE, sep = ";", na.strings = "?", stringsAsFactors = FALSE)
+
+##download data and load into variables. This assumes you have not downloaded and manually unzipped the data
+##already. This will then place the plot1 in the working directory. 
+temp <- tempfile()
+download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", temp) #requires 19.7 MB
+data <- read.table(unz(temp, "household_power_consumption.txt"), header = TRUE, sep = ";", na.strings = "?",
+                   stringsAsFactors = FALSE) #requires 126 MB
+
 
 
 ##Coerce the characters in the Date column to class Date
