@@ -51,6 +51,6 @@ legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_
 
 #add fourth plot, Global Reactive Power over time
 plot(x = datasub$datetime, y = datasub$Global_reactive_power, xlab = "datetime", 
-     ylab = "Global Reactive Power", main = "", type = "l")
+     ylab = "Global_reactive_power", main = "", type = "l")
 
 dev.off()
